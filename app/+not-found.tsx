@@ -11,7 +11,7 @@ export default function NotFoundScreen() {
         </Text>
         <Link href="/">
           <Text className="text-blue-500 font-bold text-xl">
-            Go to home screen!
+            Go to home screen mate!
           </Text>
         </Link>
       </View>
