@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function TabLayout() {
   return (
@@ -7,22 +8,72 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: "#000",
         headerShown: false,
+        tabBarShowLabel: false,
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: "Home",
-          tabBarIcon: () => <Text>Home</Text>,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={30}
+              color="black"
+            />
+          ),
         }}
       />
-      {/* <Tabs.Screen
-        name="explore"
+      <Tabs.Screen
+        name="friends"
         options={{
-          title: "Explore",
-          tabBarIcon: () => <Text>Explore</Text>,
+          title: "Friends",
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "people" : "people-outline"}
+              size={30}
+              color="black"
+            />
+          ),
         }}
-      /> */}
+      />
+      <Tabs.Screen
+        name="add_post"
+        options={{
+          title: "Add Post",
+          tabBarIcon: () => (
+            <View className="absolute">
+              <Ionicons name={"add-circle"} size={75} color="black" />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="inbox"
+        options={{
+          title: "Inbox",
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "chatbox-ellipses" : "chatbox-ellipses-outline"}
+              size={30}
+              color="black"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "person" : "person-outline"}
+              size={30}
+              color="black"
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
